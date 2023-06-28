@@ -1,3 +1,6 @@
+import { Link } from 'react-router-dom'
+import './HeroCard.css'
+
 export const HeroCard = ({
   id,
   superhero,
@@ -9,7 +12,7 @@ export const HeroCard = ({
   const heroUrl = `/assets/heroes/${id}.jpg`
 
   return (
-    <div className='col'>
+    <div className='col-lg-4 mb-3 d-flex align-items-stretch'>
       <div className='card'>
         <div className='row no-gutters'>
           <div className='col-4'>
@@ -19,7 +22,13 @@ export const HeroCard = ({
             <div className='card-body'>
               <h4 className='card-title'>{superhero}</h4>
               <p className='card-text'>{alterEgo}</p>
-              {alterEgo !== characters ? <p>{characters}</p> : null}
+              {alterEgo !== characters && <p className='card-text'>{characters}</p>}
+              <p className='card-text'>
+                <small className='text-muted'>{firstAppearance}</small>
+              </p>
+              <Link to={`/heroes/hero/${id}`} aria-label={`More information about ${superhero}`}>
+                More...
+              </Link>
             </div>
           </div>
         </div>

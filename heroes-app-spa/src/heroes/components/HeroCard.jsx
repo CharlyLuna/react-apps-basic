@@ -12,7 +12,7 @@ export const HeroCard = ({
   const heroUrl = `/assets/heroes/${id}.jpg`
 
   return (
-    <div className='col-lg-4 mb-3 d-flex align-items-stretch'>
+    <div className='col-lg-4 mb-3 d-flex align-items-stretch animate__animated animate__fadeIn'>
       <div className='card'>
         <div className='row no-gutters'>
           <div className='col-4'>

@@ -12,7 +12,7 @@ export const LoginPage = () => {
   }
   return (
     <main>
-      <form onSubmit={handleSubmit}>
+      <form className='log-in' onSubmit={handleSubmit}>
         <label htmlFor='username'>Username</label>
         <input type='text' name='username' />
         <label htmlFor='password'>Password</label>

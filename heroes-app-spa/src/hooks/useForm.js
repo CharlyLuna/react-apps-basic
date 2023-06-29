@@ -5,6 +5,8 @@ export const useForm = (initialValues = {}) => {
 
   const onInputChange = ({ target }) => {
     const { name, value } = target
+    if (value.startsWith(' ')) return
+
     setFormState({
       ...formState,
       [name]: value

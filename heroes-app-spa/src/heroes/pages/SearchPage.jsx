@@ -2,18 +2,22 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import { useForm } from '../../hooks/useForm'
 import queryString from 'query-string'
 import { HeroCard } from '../components/HeroCard'
+import { useMemo } from 'react'
+import { getHeroesByName } from '../helpers'
 
 export const SearchPage = () => {
   const navigate = useNavigate()
-  const { heroName, onInputChange } = useForm({
-    heroName: ''
-  })
   const location = useLocation()
   const { q = '' } = queryString.parse(location.search)
+  const heroes = useMemo(() => getHeroesByName(q), [q])
+  const { heroName, onInputChange } = useForm({ heroName: q })
+
+  const showSearch = q.length === 0
+  const showError = (q.length > 0) && heroes.length === 0
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    if (heroName.startsWith(' ') || heroName.length < 1) return
+
     navigate(`?q=${heroName}`)
   }
 
@@ -37,17 +41,24 @@ export const SearchPage = () => {
         </div>
         <div className='col-7'>
           <h4>Results</h4>
-          {
-            !q && (
-              <div className='alert alert-primary'>
-                Search a hero
-              </div>
-            )
-          }
-          <div className='alert alert-danger'>
+          <div
+            className='alert alert-primary animate__animated animate__fadeIn'
+            style={{ display: showSearch ? '' : 'none' }}
+          >
+            Search a hero
+          </div>
+          <div
+            className='alert alert-danger animate__animated animate__fadeIn'
+            style={{ display: showError ? '' : 'none' }}
+          >
             No results found for <b>{q}</b>
           </div>
 
+          {
+            heroes?.map(hero => (
+              <HeroCard key={hero.id} {...hero} />
+            ))
+          }
         </div>
       </div>
     </>

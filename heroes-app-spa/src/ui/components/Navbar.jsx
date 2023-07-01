@@ -4,9 +4,10 @@ import { AuthContext } from '../../auth/context/AuthProvider'
 
 export const Navbar = () => {
   const navigate = useNavigate()
-  const { user } = useContext(AuthContext)
+  const { user, handleLogout } = useContext(AuthContext)
 
-  const handleLogOut = () => {
+  const onLogOut = () => {
+    handleLogout()
     navigate('/login', {
       replace: true
     })
@@ -53,7 +54,7 @@ export const Navbar = () => {
           <span className='nav-item nav-link'>
             <b>{user?.username}</b>
           </span>
-          <button onClick={handleLogOut} className='nav-item nav-link btn'>Log out</button>
+          <button onClick={onLogOut} className='nav-item nav-link btn'>Log out</button>
         </ul>
       </div>
     </nav>

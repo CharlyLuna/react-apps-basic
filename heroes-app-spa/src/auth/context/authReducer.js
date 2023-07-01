@@ -22,10 +22,10 @@ export const authReducer = (state, action) => {
     }
     case types.logout: {
       const newState = {
-        logged: true,
+        logged: false,
         username: null
       }
-      updateLocalStorage(newState)
+      // updateLocalStorage(newState)
       return newState
     }
     default:

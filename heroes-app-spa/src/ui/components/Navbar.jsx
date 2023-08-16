@@ -18,14 +18,17 @@ export const Navbar = () => {
 
       <Link
         className='navbar-brand'
-        to='/'
+        to='/heroes'
       >
         Asociaciones
       </Link>
-
-      <div className='navbar-collapse'>
+      <div>
+        <button className='navbar-toggler' type='button' data-bs-toggle='collapse' data-bs-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation'>
+          <span className='navbar-toggler-icon' />
+        </button>
+      </div>
+      <div className='collapse navbar-collapse' id='navbarNav'>
         <div className='navbar-nav'>
-
           <NavLink
             className={({ isActive }) => `nav-item nav-link ${isActive ? 'active' : ''}`}
             to='marvel'
@@ -47,15 +50,14 @@ export const Navbar = () => {
             Search
           </NavLink>
         </div>
-      </div>
-
-      <div className='navbar-collapse collapse w-100 order-3 dual-collapse2 d-flex justify-content-end'>
-        <ul className='navbar-nav ml-auto'>
-          <span className='nav-item nav-link'>
-            <b>{user?.username}</b>
-          </span>
-          <button onClick={onLogOut} className='nav-item nav-link btn'>Log out</button>
-        </ul>
+        <div className='d-flex flex-fill justify-content-sm-end'>
+          <ul className='navbar-nav ml-auto'>
+            <span className='nav-item nav-link'>
+              <b>{user?.username}</b>
+            </span>
+            <button onClick={onLogOut} className='nav-item nav-link btn'>Log out</button>
+          </ul>
+        </div>
       </div>
     </nav>
   )

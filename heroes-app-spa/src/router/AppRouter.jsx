@@ -1,15 +1,15 @@
 import React from 'react'
-import { Route, Routes } from 'react-router-dom'
+import { Navigate, Route, Routes } from 'react-router-dom'
 import { LoginPage } from '../auth'
 import { HeroesRoutes } from '../heroes'
 import { HomePage } from '../home/HomePage'
 import { ProtectedRoute } from './ProtectedRoute'
+import { PublicRoute } from './PublicRoute'
 
 export const AppRouter = () => {
   return (
     <>
       <Routes>
-        <Route path='/*' element={<HomePage />} />
         <Route
           path='/heroes/*'
           element={
@@ -18,7 +18,15 @@ export const AppRouter = () => {
             </ProtectedRoute>
           }
         />
-        <Route path='/login' element={<LoginPage />} />
+        <Route
+          path='/login' element={
+            <PublicRoute>
+              <LoginPage />
+            </PublicRoute>
+          }
+        />
+        <Route path='/' element={<HomePage />} />
+        <Route path='*' element={<Navigate to='/' />} />
       </Routes>
     </>
   )

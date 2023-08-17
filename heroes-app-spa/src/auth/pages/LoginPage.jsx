@@ -14,8 +14,9 @@ export const LoginPage = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault()
+    const lastPath = window.localStorage.getItem('lastPath') || '/heroes'
     handleLogin(username)
-    navigate('/heroes', {
+    navigate(lastPath, {
       replace: true
     })
   }

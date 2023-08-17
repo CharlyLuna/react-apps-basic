@@ -2,7 +2,7 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import { useForm } from '../../hooks/useForm'
 import queryString from 'query-string'
 import { HeroCard } from '../components/HeroCard'
-import { useMemo } from 'react'
+import { useMemo, useRef } from 'react'
 import { getHeroesByName } from '../helpers'
 
 export const SearchPage = () => {
@@ -11,12 +11,15 @@ export const SearchPage = () => {
   const { q = '' } = queryString.parse(location.search)
   const heroes = useMemo(() => getHeroesByName(q), [q])
   const { heroName, onInputChange } = useForm({ heroName: q })
+  const prevSearch = useRef(heroName)
 
   const showSearch = q.length === 0
   const showError = (q.length > 0) && heroes.length === 0
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    if (prevSearch.current === heroName) return
+    prevSearch.current = heroName
 
     navigate(`?q=${heroName}`)
   }

@@ -9,7 +9,6 @@ export const ProtectedRoute = ({ children }) => {
   useEffect(() => {
     window.localStorage.setItem('lastPath', lastPath)
   }, [pathname, search])
-  console.log('render')
 
   return logged ? children : <Navigate to='/login' replace />
 }

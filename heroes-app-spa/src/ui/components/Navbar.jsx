@@ -15,7 +15,6 @@ export const Navbar = () => {
 
   return (
     <nav className='navbar navbar-expand-sm navbar-dark bg-dark p-2'>
-
       <Link
         className='navbar-brand'
         to='/heroes'
@@ -28,28 +27,32 @@ export const Navbar = () => {
         </button>
       </div>
       <div className='collapse navbar-collapse' id='navbarNav'>
-        <div className='navbar-nav'>
-          <NavLink
-            className={({ isActive }) => `nav-item nav-link ${isActive ? 'active' : ''}`}
-            to='marvel'
-          >
-            Marvel
-          </NavLink>
-
-          <NavLink
-            className={({ isActive }) => `nav-item nav-link ${isActive ? 'active' : ''}`}
-            to='dc'
-          >
-            DC
-          </NavLink>
-
-          <NavLink
-            className={({ isActive }) => `nav-item nav-link ${isActive ? 'active' : ''}`}
-            to='search'
-          >
-            Search
-          </NavLink>
-        </div>
+        <ul className='navbar-nav'>
+          <li>
+            <NavLink
+              className={({ isActive }) => `nav-item nav-link ${isActive ? 'active' : ''}`}
+              to='marvel'
+            >
+              Marvel
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              className={({ isActive }) => `nav-item nav-link ${isActive ? 'active' : ''}`}
+              to='dc'
+            >
+              DC
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              className={({ isActive }) => `nav-item nav-link ${isActive ? 'active' : ''}`}
+              to='search'
+            >
+              Search
+            </NavLink>
+          </li>
+        </ul>
         <div className='d-flex flex-fill justify-content-sm-end'>
           <ul className='navbar-nav ml-auto'>
             <span className='nav-item nav-link'>

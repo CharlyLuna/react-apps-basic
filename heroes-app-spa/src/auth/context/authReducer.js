@@ -25,7 +25,6 @@ export const authReducer = (state, action) => {
         logged: false,
         username: null
       }
-      // updateLocalStorage(newState)
       return newState
     }
     default:

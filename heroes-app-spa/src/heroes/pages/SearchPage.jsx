@@ -28,7 +28,7 @@ export const SearchPage = () => {
     <>
       <h1>Search</h1>
       <div className='row'>
-        <div className='col-5'>
+        <div className='col-md-5'>
           <h4>Search a hero by name</h4>
           <form className='hero-search' onSubmit={handleSubmit}>
             <label htmlFor='heroName' />
@@ -42,7 +42,7 @@ export const SearchPage = () => {
             <button className='btn btn-dark mt-2'>Search</button>
           </form>
         </div>
-        <div className='col-7'>
+        <div className='col-md-7 mt-4 mt-md-0'>
           <h4>Results</h4>
           <div
             className='alert alert-primary animate__animated animate__fadeIn'

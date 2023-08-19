@@ -22,14 +22,14 @@ export const HomePage = () => {
   return (
     <main className='hero-section'>
       <div className='hero-info'>
-        <div className='hero-box text-center text-md-start'>
+        <div className='hero-box text-center'>
           <h1 className='fs-1'>Heroes App</h1>
-          <p className=''>App for checking heroes descriptions. Just create a username and start using the app.</p>
-          <button className={`btn btn-dark fs-5 ${showLogin ? 'disabled' : ''}`} type='button' onClick={() => setShowLogin(true)}>Create username</button>
+          <p className=''>App to check heroes information. Just create a username and start using the app.</p>
+          <button className={`btn btn-dark fs-5 mb-2 ${showLogin ? 'disabled' : ''}`} type='button' onClick={() => setShowLogin(true)}>Create username</button>
         </div>
         {
           showLogin && (
-            <form className=' text-center text-md-start' onSubmit={handleSubmit}>
+            <form className=' text-center text-md-start animate__animated animate__fadeIn' onSubmit={handleSubmit}>
               <div className='login-action'>
                 <input placeholder='username123' type='text' name='username' value={username} onChange={onInputChange} required />
                 <button className='btn btn-dark' type='submit'>Start</button>

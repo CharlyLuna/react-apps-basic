@@ -1,0 +1,64 @@
+/* Hero */
+.hero-section {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  background-color: #000;
+  color: #fff;
+  background-image: url(/hero-background.jpg);
+}
+
+.hero-description {
+  position: relative;
+  top: 40%;
+  left: 10%;
+  padding: 13px;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  min-width: 350px;
+  width: 600px;
+}
+
+.hero-description p {
+  color: #e8e8e8;
+}
+
+/* Login */
+.login {
+  margin-top: 15px;
+  position: relative;
+  top: 40%;
+  left: 10%;
+  width: 600px;
+}
+
+.login-action {
+  display: flex;
+  align-items: center;
+}
+
+.login-action input {
+  flex-grow: 2;
+}
+.login-action button {
+  flex-grow: 1;
+}
+
+
+/* Change position of description on small devices */
+@media (max-width: 768px) {
+  .hero-description {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+  }
+  .login {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+  }
+}

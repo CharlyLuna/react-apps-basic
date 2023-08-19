@@ -10,5 +10,5 @@ export const ProtectedRoute = ({ children }) => {
     window.localStorage.setItem('lastPath', lastPath)
   }, [pathname, search])
 
-  return logged ? children : <Navigate to='/login' replace />
+  return logged ? children : <Navigate to='/' replace />
 }

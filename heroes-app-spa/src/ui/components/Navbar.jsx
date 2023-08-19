@@ -8,7 +8,7 @@ export const Navbar = () => {
 
   const onLogOut = () => {
     handleLogout()
-    navigate('/login', {
+    navigate('/', {
       replace: true
     })
   }

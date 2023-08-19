@@ -1,6 +1,5 @@
 import React from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
-import { LoginPage } from '../auth'
 import { HeroesRoutes } from '../heroes'
 import { HomePage } from '../home/HomePage'
 import { ProtectedRoute } from './ProtectedRoute'
@@ -19,13 +18,12 @@ export const AppRouter = () => {
           }
         />
         <Route
-          path='/login' element={
+          path='/' element={
             <PublicRoute>
-              <LoginPage />
+              <HomePage />
             </PublicRoute>
           }
         />
-        <Route path='/' element={<HomePage />} />
         <Route path='*' element={<Navigate to='/' />} />
       </Routes>
     </>

@@ -9,7 +9,7 @@ export const HeroCard = ({
   firstAppearance,
   characters
 }) => {
-  const heroUrl = `/heroes/${id}.jpg`
+  const heroUrl = `/heroes/${id}.webp`
 
   return (
     <div className='col mb-3 d-flex align-items-stretch animate__animated animate__fadeIn'>

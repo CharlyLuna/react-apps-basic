@@ -5,10 +5,6 @@ export const authInitialState = {
   username: null
 }
 
-export const updateLocalStorage = (state) => {
-  window.localStorage.setItem('user', JSON.stringify(state))
-}
-
 export const authReducer = (state, action) => {
   switch (action.type) {
     case types.login: {
@@ -17,7 +13,7 @@ export const authReducer = (state, action) => {
         logged: true,
         username: action.payload
       }
-      updateLocalStorage(newState)
+
       return newState
     }
     case types.logout: {

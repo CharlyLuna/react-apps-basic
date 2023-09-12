@@ -51,6 +51,7 @@ export const SearchPage = () => {
             Search a hero
           </div>
           <div
+            data-testid='error-message'
             className='alert alert-danger animate__animated animate__fadeIn'
             style={{ display: showError ? '' : 'none' }}
           >
